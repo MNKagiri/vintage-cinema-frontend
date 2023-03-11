@@ -61,8 +61,8 @@ export default function BookDetails({movie}){
             <Box marginTop='11%' marginBottom = '10%' key={movie._id}>
             <Head>  <title> {`${movie.title}`}</title></Head>
             <Grid templateColumns="repeat(2, 1fr)"  /* alignItems="center" */ justifyItems="center">
-              <Container maxW = 'md' maxH = 'md'>  <Image  src= {movie.poster}/> </Container>
-              <Box>  <Text fontSize='1.5em'> {movie.directors.map((dir) => <>{dir}</>)}'s  <Heading> {movie.title}</Heading></Text>
+              <Container maxW = 'md' maxH = 'md'>  <Image alt='movie poster'  src= {movie.poster}/> </Container>
+              <Box>  <Text fontSize='1.5em'> {movie.directors.map((dir) => <>{dir}</>)}&apos;s  <Heading> {movie.title}</Heading></Text>
                 <Text fontSize='2em'>{movie.fullplot} </Text> 
                 { add ? <>
             <Box>                    
@@ -77,7 +77,7 @@ export default function BookDetails({movie}){
             }
             <h2> Starring</h2>
             {movie.cast.map((member) => 
-             <Box>
+             <Box key={member}>
                 {member}
              </Box>)}
                 
@@ -89,7 +89,7 @@ export default function BookDetails({movie}){
               <Box marginTop='2%' >
 
                 {movie.movie_reviews.map((comment) => 
-                <Box marginTop = '1%' width='50%'  boxShadow= 'dark-lg'  rounded='xl' marginLeft='8%' padding='1%'>
+                <Box  key = {comment.userId} marginTop = '1%' width='50%'  boxShadow= 'dark-lg'  rounded='xl' marginLeft='8%' padding='1%'>
                   
              <Box > <Text > {comment.userId} </Text>  </Box>    
                 <Text color = '#b72818'> {comment.review} </Text>      
