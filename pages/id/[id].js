@@ -86,7 +86,7 @@ export default function BookDetails({movie}){
             </Box>
               
             <Heading  marginTop='5%' marginLeft = '8%'> Reviews </Heading>
-              <Box marginTop='2%' >
+            <Box marginTop='2%' >
 
                 {movie.movie_reviews.map((comment) => 
                 <Box  key = {comment.userId} marginTop = '1%' width='50%'  boxShadow= 'dark-lg'  rounded='xl' marginLeft='8%' padding='1%'>
